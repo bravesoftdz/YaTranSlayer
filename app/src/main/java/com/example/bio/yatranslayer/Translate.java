@@ -1,5 +1,6 @@
 package com.example.bio.yatranslayer;
 
+// класс контейнер
 class Translate {
     long _id;
     String fromLang;

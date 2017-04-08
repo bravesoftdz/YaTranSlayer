@@ -24,16 +24,8 @@ public class MainActivity extends AppCompatActivity {
     final static String TAG_1 = "FragmentHomepage";
     final static String TAG_2 = "FragmentHistory";
     final static String TAG_3 = "FragmentOptions";
-    final static String TAG_4 = "FragmentChooseLanguages";
-
-
-
 
     private FragmentManager mFragmentManager;
-
-    final static String _defaultFullLanguageName = "_defaultFullLanguageName";
-    final static String _defaultShortLanguageName = "_defaultShortLanguageName";
-
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {

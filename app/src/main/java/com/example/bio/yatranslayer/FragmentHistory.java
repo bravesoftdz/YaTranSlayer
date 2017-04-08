@@ -15,9 +15,8 @@ import java.util.ArrayList;
 
 import static com.example.bio.yatranslayer.CONSTS.KEY_FAVOURITE_MODE;
 
+// фрагмент, показывающий историю сохраненных переводов
 public class FragmentHistory extends Fragment {
-
-
     public FragmentHistory() {
     }
 
@@ -27,19 +26,19 @@ public class FragmentHistory extends Fragment {
         final View view = inflater.inflate(R.layout.fragment_history, null);
         final ListView lvMain = (ListView) view.findViewById(R.id.listHistory);
 
+        // из базы запросил всю историю
         ArrayList<Translate> translateArrayList = getHistory();
         HistoryAdapter historyAdapter = new HistoryAdapter(getActivity(), translateArrayList);
+        // и назначил показать ее через кастом адаптер списком
         lvMain.setAdapter(historyAdapter);
 
+        // провести пальцем влево по списку истории для удаления
         final SwipeDetector swipeDetector = new SwipeDetector();
         lvMain.setOnTouchListener(swipeDetector);
-
         lvMain.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, final int position, long arg3) {
                 //   Toast.makeText(getActivity(), position+"", Toast.LENGTH_SHORT).show();
-
-
                 if (swipeDetector.swipeDetected()) {
                     if (swipeDetector.getAction() == SwipeDetector.Action.RL) {
                         getActivity().runOnUiThread(new Runnable() {
@@ -57,6 +56,7 @@ public class FragmentHistory extends Fragment {
             }
         });
 
+        // по долгому клику на список переключается избранное или нет
         lvMain.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -80,9 +80,9 @@ public class FragmentHistory extends Fragment {
         }
 
 
+        // нажатие на кнопку ИЗБРАННОЕ в истории, фильтр история или избранное
         favOnly.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
                 if (isFavMode()) {
                     favOnly.setBackgroundColor(Color.WHITE);
                     SharedPreferencesClass.saveVariable(KEY_FAVOURITE_MODE, "0", getActivity());
@@ -100,7 +100,7 @@ public class FragmentHistory extends Fragment {
         return view;
     }
 
-    //
+    // дурацкий способ обновить список заново, надо через адаптер-нотифай
     void updateList(ArrayList<Translate> updateList, View view) {
         final ListView lvMain = (ListView) view.findViewById(R.id.listHistory);
         HistoryAdapter historyAdapter = new HistoryAdapter(getActivity(), updateList);
@@ -124,6 +124,7 @@ public class FragmentHistory extends Fragment {
         return translateArrayList;
     }
 
+    // узнаю, что было выбрано последним, показывать только избранное в истории или нет
     boolean isFavMode() {
         String favouriteMode = SharedPreferencesClass.loadVariable(KEY_FAVOURITE_MODE, getActivity());
         if (favouriteMode.equals("1")) {
@@ -133,6 +134,7 @@ public class FragmentHistory extends Fragment {
         }
     }
 
+    // дурацкое удаление по позиции, от позиции высчитывается внутренний ID в базе и уже по нему удаляется
     int deleteHistoryByPosition(int position) {
         DatabaseAdapter databaseAdapter = new DatabaseAdapter(getActivity()).openToWrite();
         int numDeleted = databaseAdapter.deleteHistoryRowByPosition(position);
@@ -143,6 +145,7 @@ public class FragmentHistory extends Fragment {
         return numDeleted;
     }
 
+    // обновление по позиции
     int updateFavouriteByPosition(int position) {
         DatabaseAdapter databaseAdapter = new DatabaseAdapter(getActivity()).openToWrite();
         int numUpdated = databaseAdapter.updateFavouriteByPosition(position);

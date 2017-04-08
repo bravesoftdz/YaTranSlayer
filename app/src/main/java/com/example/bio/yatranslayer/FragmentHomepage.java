@@ -37,14 +37,10 @@ import static com.example.bio.yatranslayer.CONSTS.YANDEX_SPEECH_KIT_API_KEY;
 
 
 public class FragmentHomepage extends Fragment implements VocalizerListener {
-    //    Activity activity;
-//    yandexAPI yaAPIrequest;
-//    String eventMessage = null;
-//    yandexAPI yandexApi;
-
     private Vocalizer vocalizer;
     private static final String API_KEY = YANDEX_SPEECH_KIT_API_KEY;
 
+    // евентбасом обрабатываю пришедшие события
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEvent(EventLanguage event) {
         String language = event.LanguageShortName;
@@ -100,6 +96,7 @@ public class FragmentHomepage extends Fragment implements VocalizerListener {
     }
 
 
+    // обновляю текст на кнопках выбора языка
     void updateFromToButtonsText(View view) {
         String fromLang = SharedPreferencesClass.loadVariable(KEY_FROM_LANGUAGE_FULL_NAME, getActivity());
         String toLang = SharedPreferencesClass.loadVariable(KEY_TO_LANGUAGE_FULL_NAME, getActivity());
@@ -147,6 +144,7 @@ public class FragmentHomepage extends Fragment implements VocalizerListener {
             }
         });
 
+        // кнопка проговорить текст TextToSpeech
         final Button buttonSpeakSoucetext = (Button) view.findViewById(R.id.buttonSpeakSouceText);
         buttonSpeakSoucetext.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -170,7 +168,7 @@ public class FragmentHomepage extends Fragment implements VocalizerListener {
                         resetVocalizer();
                         // To create a new vocalizer, specify the language, the text to be vocalized, the auto play parameter
                         // and the voice.
-                        vocalizer = Vocalizer.createVocalizer(Vocalizer.Language.RUSSIAN, text, true, Vocalizer.Voice.ERMIL);
+                        vocalizer = Vocalizer.createVocalizer(langSource, text, true, Vocalizer.Voice.ERMIL);
                         // Set the listener.
                         vocalizer.setListener(FragmentHomepage.this);
                         // Don't forget to call start.
@@ -255,7 +253,7 @@ public class FragmentHomepage extends Fragment implements VocalizerListener {
         });
         /////////
 
-        // buttonLanguageHypothesis
+        // buttonLanguageHypothesis, кнопка определения языка ввода
         Button buttonLanguageHypothesis = (Button) view.findViewById(R.id.buttonLanguageHypothesis);
         buttonLanguageHypothesis.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -275,7 +273,7 @@ public class FragmentHomepage extends Fragment implements VocalizerListener {
             }
         });
 
-        // buttonLanguageHypothesis
+        // сохранить в историю
         Button buttonSaveTranslation = (Button) view.findViewById(R.id.buttonSaveTranslation);
         buttonSaveTranslation.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -304,7 +302,7 @@ public class FragmentHomepage extends Fragment implements VocalizerListener {
         });
 
 
-        // buttonSaveToFavourite
+        // buttonSaveToFavourite, сохранить в историю как избранное
         Button buttonSaveToFavourite = (Button) view.findViewById(R.id.buttonSaveToFavourite);
         buttonSaveToFavourite.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -333,12 +331,11 @@ public class FragmentHomepage extends Fragment implements VocalizerListener {
         });
 
         // buttonMicrophoneInput
+        // голосовой ввод, voice to text
         Button buttonMicrophoneInput = (Button) view.findViewById(R.id.buttonMicrophoneInput);
         buttonMicrophoneInput.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 String langSource = SharedPreferencesClass.loadVariable(KEY_FROM_LANGUAGE, getActivity());
 
                 // только Русский, Английский, Турецкий, Украинский
@@ -353,7 +350,6 @@ public class FragmentHomepage extends Fragment implements VocalizerListener {
                 } else {
                     Toast.makeText(getActivity(), "Только рус, англ, укр, тур", Toast.LENGTH_LONG).show();
                 }
-
             }
         });
 
@@ -378,12 +374,6 @@ public class FragmentHomepage extends Fragment implements VocalizerListener {
                 startPickupLanguageFragment();
             }
         });
-        //textViewLanguage
-//        String fromLanguage = SharedPreferencesClass.loadVariable(KEY_FROM_LANGUAGE, getActivity());
-//        if (fromLanguage != null) {
-//            final TextView textViewToChange = (TextView) view.findViewById(R.id.buttonFromLanguage);
-//            textViewToChange.setText(fromLanguage);
-//        }
 
 
         updateFromToButtonsText(view);
@@ -392,6 +382,7 @@ public class FragmentHomepage extends Fragment implements VocalizerListener {
         return view;
     }
 
+    // показываю фрагмент ввода голосом
     void startVoiceToTextFragment() {
         Fragment fragmentVoiceToText = new RecognizerFragment();
         FragmentManager mFragmentManager = getFragmentManager();
@@ -402,6 +393,7 @@ public class FragmentHomepage extends Fragment implements VocalizerListener {
 
     }
 
+    // показываю фрагмент выбора языка
     void startPickupLanguageFragment() {
         FragmentPickupLanguage fragmentPickupLanguage = new FragmentPickupLanguage();
         android.app.FragmentManager mFragmentManager = getFragmentManager();
@@ -411,6 +403,7 @@ public class FragmentHomepage extends Fragment implements VocalizerListener {
         langFragmentTransaction.commit();
     }
 
+    // делаю видимым gui
     void showInterface() {
         try {
             RelativeLayout frameLayout4 = (RelativeLayout) getActivity().findViewById(R.id.relativeLayout4);
@@ -423,6 +416,7 @@ public class FragmentHomepage extends Fragment implements VocalizerListener {
 
     }
 
+    // прячу интерфейс gui
     void hideInterface() {
         try {
             RelativeLayout frameLayout4 = (RelativeLayout) getActivity().findViewById(R.id.relativeLayout4);
@@ -439,6 +433,7 @@ public class FragmentHomepage extends Fragment implements VocalizerListener {
         }
     }
 
+    // прячу только низ интерфейса
     void hideInterfaceBottom() {
         try {
             RelativeLayout frameLayout = (RelativeLayout) getActivity().findViewById(R.id.relativeLayout);

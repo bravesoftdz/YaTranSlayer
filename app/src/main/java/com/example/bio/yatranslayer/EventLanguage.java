@@ -1,5 +1,6 @@
 package com.example.bio.yatranslayer;
 
+// для eventBus кидаю этот класс между фрагментами для обмена
 class EventLanguage {
     final String LanguageShortName;
     final String message;

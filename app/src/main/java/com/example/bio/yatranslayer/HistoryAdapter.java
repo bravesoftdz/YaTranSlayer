@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+// кастом адаптер для кастом списка в историии
 class HistoryAdapter extends BaseAdapter {
     private static final int CONST_TRUE = 1;
 

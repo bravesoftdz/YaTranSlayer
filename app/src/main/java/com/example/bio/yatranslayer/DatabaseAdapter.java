@@ -16,6 +16,8 @@ import java.util.Map;
 import static com.example.bio.yatranslayer.CONSTS.KEY_FAVOURITE_MODE;
 import static com.loopj.android.http.AsyncHttpClient.LOG_TAG;
 
+
+// Класс-обертка для работы с БД sqlite встроенной
 class DatabaseAdapter {
     private static final String DB_NAME = "yatraslayer.db"; // название бд
     private static final int DB_VERSION = 2; // версия бд
@@ -49,19 +51,19 @@ class DatabaseAdapter {
         this.context = context;
     }
 
-    synchronized DatabaseAdapter openToRead() throws android.database.SQLException {
+    DatabaseAdapter openToRead() throws android.database.SQLException {
         sqLiteHelper = new SQLiteHelper(context, DB_NAME, null, DB_VERSION);
         sqLiteDatabase = sqLiteHelper.getReadableDatabase();
         return this;
     }
 
-    synchronized DatabaseAdapter openToWrite() throws android.database.SQLException {
+    DatabaseAdapter openToWrite() throws android.database.SQLException {
         sqLiteHelper = new SQLiteHelper(context, DB_NAME, null, DB_VERSION);
         sqLiteDatabase = sqLiteHelper.getWritableDatabase();
         return this;
     }
 
-    synchronized void DBclose() {
+    void DBclose() {
         if (sqLiteDatabase != null) {
             sqLiteDatabase.close();
         }
@@ -143,6 +145,7 @@ class DatabaseAdapter {
         return langsMap;
     }
 
+    // запросить всю историю сохранений перевода
     ArrayList<Translate> querryAllHistory() {
         ArrayList<Translate> translate = new ArrayList<>();
 
@@ -166,6 +169,7 @@ class DatabaseAdapter {
         return translate;
     }
 
+    // избранное или нет по идентификатору _ID, 1/0
     int querryFavouriteByID (int id){
         Cursor c = sqLiteDatabase.query(TABLE_HISTORY_DIRECTION_FAVOURITES, null, "_ID = " + id, null, null, null, null);
         int fav = -1;
@@ -210,7 +214,7 @@ class DatabaseAdapter {
     }
 
 
-
+// переключатель избранное по долгому клику на список
     int updateFavouriteByPosition(int position) {
         ArrayList<Translate> translateArrayList = null;
 
@@ -245,6 +249,7 @@ class DatabaseAdapter {
         return updateCount;
     }
 
+    // сохранить перевод в базу
     void insertTranslationHistory(String sourceText, String translatedText, String translateDirection, int favourite) {
         ContentValues values = new ContentValues();
 

@@ -11,9 +11,11 @@ import static com.example.bio.yatranslayer.CONSTS.KEY_FAVOURITE_MODE;
 import static com.example.bio.yatranslayer.CONSTS.KEY_FROM_LANGUAGE;
 import static com.example.bio.yatranslayer.CONSTS.KEY_TO_LANGUAGE;
 
+// простые настройки
 class SharedPreferencesClass {
     SharedPreferences sPref;
 
+    // сохранить ключ-значение
     static void saveVariable(String key, String value, Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         android.content.SharedPreferences.Editor editor = prefs.edit();
@@ -21,13 +23,14 @@ class SharedPreferencesClass {
         editor.commit();
     }
 
+    // загрузить ключ-значение
     static String loadVariable(String key, Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String token = prefs.getString(key, null);
-
         return token;
     }
 
+    // взять текущее направление перевода ru-en
     static String getTranslationDirection(Context context) {
         String fromLanguage = SharedPreferencesClass.loadVariable(KEY_FROM_LANGUAGE, context);
         String toLanguage = SharedPreferencesClass.loadVariable(KEY_TO_LANGUAGE, context);
@@ -35,6 +38,7 @@ class SharedPreferencesClass {
         return fromLanguage + "-" + toLanguage;
     }
 
+    // инициализация
     static void init(Context context){
         // инит переменных проги, сохранил локаль по умолчанию
         String locale = Locale.getDefault().getLanguage();

@@ -1,6 +1,7 @@
 package com.example.bio.yatranslayer;
 
 
+// обработка HTTP запросов яндекс-переводчику и json ответ
 import android.content.Context;
 import android.os.AsyncTask;
 
@@ -31,21 +32,15 @@ import static com.example.bio.yatranslayer.CONSTS.KEY_FROM_LANGUAGE;
 import static com.example.bio.yatranslayer.CONSTS.KEY_FROM_LANGUAGE_FULL_NAME;
 import static com.example.bio.yatranslayer.CONSTS.KEY_TO_LANGUAGE;
 import static com.example.bio.yatranslayer.CONSTS.KEY_TO_LANGUAGE_FULL_NAME;
+import static com.example.bio.yatranslayer.CONSTS.YANDEX_TRANSLATION_API_KEY;
 
 class yandexAPI {
     private static final String YANDEX_API_VERSION = "v1.5"; // ну, очевидно, что это версия и она будет вот тут меняться и приложение упадет
 
-    // нумерация функций по номеру, подумать над передачей параметров пооптимальней чем по номерам, пока лишь бы работало для 3х методов
-
+    // нумерация функций по имени
     static final String YANDEX_API_GET_LANGUAGES = "getLangs?";// API получить список поддерживаемых языков и направлений перевода
-
     static final String YANDEX_API_DETECT_LANGUAGE = "detect?"; // API определение языка
-
     static final String YANDEX_API_TRANSLATE = "translate?"; // функция API перевода
-
-
-    // ключ доступа к яндекс переводчику, уникален для каждого
-    private static final String YANDEX_API_KEY = "trnsl.1.1.20170315T201427Z.3d922f705d0b7acf.182766b256a136dfb71cee03a4afa34f585c9b2b";
 
     // базовая ссылка
     private static final String BASE_URL = "https://translate.yandex.net/api/" + YANDEX_API_VERSION + "/tr.json/";
@@ -81,7 +76,7 @@ class yandexAPI {
     private String getAsyncHttp(String yandexApiName, String fromLanguageText, String translateTextDirection) {
         String yandexApiNameq = null;
         RequestParams params = new RequestParams();
-        params.put("key", YANDEX_API_KEY);
+        params.put("key", YANDEX_TRANSLATION_API_KEY);
 
         switch (yandexApiName) {
             case YANDEX_API_GET_LANGUAGES:
@@ -134,7 +129,7 @@ class yandexAPI {
         getHTTPrequestTask myTask = new getHTTPrequestTask(); // создаю задание
 
         // запускаю задание, передаю базовый урл, апи ключ, имя функции
-        myTask.execute(BASE_URL, YANDEX_API_KEY, yandexApiName, inputText, translateDirection);
+        myTask.execute(BASE_URL, YANDEX_TRANSLATION_API_KEY, yandexApiName, inputText, translateDirection);
 
         try {
             // жду ответа 5 секунд, мухожук, возвращаю текст хттп ответа
@@ -379,7 +374,6 @@ class yandexAPI {
 //            databaseAdapter.insertTranslationHistory(sourceText, translatedText, translateDirection, 0);
             databaseAdapter.DBclose();
         }
-
 
         String a = null;
         a = "a";
