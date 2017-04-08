@@ -26,9 +26,8 @@
         android:id="@+id/textViewLanguage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
         android:layout_above="@+id/chooseLanguagesLayout"
-        android:layout_toRightOf="@+id/buttonChooseLanguage"
-        android:layout_toEndOf="@+id/buttonChooseLanguage" />
+        android:layout_toEndOf="@+id/buttonChooseLanguage"
+        android:layout_toRightOf="@+id/buttonChooseLanguage" />
 
 </RelativeLayout>

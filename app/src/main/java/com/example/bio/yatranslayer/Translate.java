@@ -1,8 +1,17 @@
 package com.example.bio.yatranslayer;
 
-/**
- * Created by jack on 28.03.2017.
- */
-
 class Translate {
+    long _id;
+    String fromLang;
+    String toLang;
+    String direction;
+    int favourite;
+
+    Translate(int _id, String fromLang, String toLang, String direction, int favourite) {
+        this._id = _id;
+        this.fromLang = fromLang;
+        this.toLang = toLang;
+        this.direction = direction;
+        this.favourite = favourite;
+    }
 }

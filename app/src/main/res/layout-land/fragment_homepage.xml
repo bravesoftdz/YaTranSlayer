@@ -147,22 +147,24 @@
             android:id="@+id/relativeLayout"
             android:layout_width="wrap_content"
             android:layout_height="170dp"
-            android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/relativeLayout4"
-            android:layout_alignParentLeft="true">
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="54dp">
 
             <TextView
                 android:id="@+id/textViewDestination"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_toLeftOf="@+id/relativeLayout5"
                 android:layout_toStartOf="@+id/relativeLayout5"
-                tools:ignore="RelativeOverlap" />
+                tools:ignore="RelativeOverlap"
+                android:layout_toLeftOf="@+id/relativeLayout5"
+                android:layout_marginRight="173dp"
+                android:layout_marginEnd="173dp" />
 
             <RelativeLayout
                 android:id="@+id/relativeLayout5"
@@ -170,25 +172,27 @@
                 android:layout_height="match_parent"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_alignParentRight="true">
+                android:layout_alignParentRight="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="385dp"
+                android:layout_marginStart="385dp">
 
                 <Button
                     android:id="@+id/buttonSaveTranslation"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:background="@android:drawable/ic_menu_save"
-                    android:layout_marginBottom="47dp"
-                    android:layout_above="@+id/buttonSaveToFavourite"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true" />
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
 
                 <Button
                     android:id="@+id/buttonSaveToFavourite"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:background="@drawable/favbutton"
-                    android:layout_marginBottom="78dp"
-                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentTop="true"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true" />
 
@@ -197,11 +201,9 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
 
-                    android:layout_alignBaseline="@+id/buttonSaveTranslation"
-                    android:layout_alignBottom="@+id/buttonSaveTranslation"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:background="@drawable/speakerbutton" />
+                    android:background="@drawable/speakerbutton"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true" />
 
             </RelativeLayout>
 

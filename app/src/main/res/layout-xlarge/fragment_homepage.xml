@@ -80,17 +80,17 @@
 
             <EditText
                 android:id="@+id/editTextSource"
-                android:layout_width="200dp"
-                android:layout_height="110dp"
+                android:layout_width="400dp"
+                android:layout_height="220dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
                 android:ems="10"
                 android:hint="@string/input_hint_text"
                 android:inputType="textMultiLine"
                 android:lines="15"
-                android:scrollbars="vertical"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true" />
+                android:scrollbars="vertical" />
 
             <RelativeLayout
                 android:id="@+id/relativeLayout6"
@@ -99,8 +99,8 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/editTextSource"
-                android:layout_toRightOf="@+id/editTextSource"
-                android:layout_alignParentRight="true">
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/editTextSource">
 
                 <Button
                     android:id="@+id/buttonMicrophoneInput"
@@ -123,22 +123,23 @@
                     android:id="@+id/buttonLanguageHypothesis"
                     android:layout_width="55dp"
                     android:layout_height="50dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
                     android:text="@string/check_what_lang"
                     android:textSize="9sp"
-                    tools:ignore="SmallSp" />
+                    tools:ignore="SmallSp"
+                    android:layout_alignParentTop="true"
+                    android:layout_toLeftOf="@+id/buttonSpeakSouceText"
+                    android:layout_toStartOf="@+id/buttonSpeakSouceText"
+                    android:layout_marginRight="82dp"
+                    android:layout_marginEnd="82dp" />
 
                 <Button
                     android:id="@+id/buttonClearSourceText"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:background="@drawable/delbutton"
-                    android:layout_below="@+id/buttonLanguageHypothesis"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginTop="21dp" />
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/buttonLanguageHypothesis"
+                    android:layout_toStartOf="@+id/buttonLanguageHypothesis" />
             </RelativeLayout>
 
         </RelativeLayout>
@@ -177,8 +178,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:background="@android:drawable/ic_menu_save"
-                    android:layout_marginBottom="47dp"
-                    android:layout_above="@+id/buttonSaveToFavourite"
+                    android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true" />
 
@@ -187,10 +187,10 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:background="@drawable/favbutton"
-                    android:layout_marginBottom="78dp"
-                    android:layout_alignParentBottom="true"
+                    android:layout_below="@+id/buttonSaveTranslation"
                     android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true" />
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="25dp" />
 
                 <Button
                     android:id="@+id/buttonSpeakTranslatedText"
