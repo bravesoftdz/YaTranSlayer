@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragmentHomepage"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:visibility="visible">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <Button
+                android:id="@+id/buttonFromLanguage"
+                android:layout_width="154dp"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:text="@string/ru"
+                tools:clickable="true"
+                tools:ignore="ButtonStyle" />
+
+            <Button
+                android:id="@+id/toggleTranslateButton"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+
+                android:background="@android:drawable/ic_media_play"
+                android:gravity="bottom"
+                android:textSize="8sp"
+                tools:text="translate"
+                tools:ignore="ButtonStyle,SmallSp" />
+
+            <Button
+                android:id="@+id/buttonToLanguage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:text="@string/en"
+                tools:clickable="true"
+                tools:ignore="ButtonStyle" />
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/frameLanguages"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/linearLayout">
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/frameVoiceToText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/relativeLayout4">
+
+        </FrameLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout4"
+            android:layout_width="wrap_content"
+            android:layout_height="140dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/linearLayout"
+            android:layout_alignParentLeft="true">
+
+            <EditText
+                android:id="@+id/editTextSource"
+                android:layout_width="200dp"
+                android:layout_height="110dp"
+                android:layout_alignParentStart="true"
+                android:ems="10"
+                android:hint="@string/input_hint_text"
+                android:inputType="textMultiLine"
+                android:lines="15"
+                android:scrollbars="vertical"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true" />
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout6"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/editTextSource"
+                android:layout_toRightOf="@+id/editTextSource"
+                android:layout_alignParentRight="true">
+
+                <Button
+                    android:id="@+id/buttonMicrophoneInput"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/micbutton"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+
+                <Button
+                    android:id="@+id/buttonSpeakSouceText"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/speakerbutton"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true" />
+
+                <Button
+                    android:id="@+id/buttonLanguageHypothesis"
+                    android:layout_width="55dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:text="@string/check_what_lang"
+                    android:textSize="9sp"
+                    tools:ignore="SmallSp" />
+
+                <Button
+                    android:id="@+id/buttonClearSourceText"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@drawable/delbutton"
+                    android:layout_below="@+id/buttonLanguageHypothesis"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="21dp" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="170dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/relativeLayout4"
+            android:layout_alignParentLeft="true">
+
+            <TextView
+                android:id="@+id/textViewDestination"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_toLeftOf="@+id/relativeLayout5"
+                android:layout_toStartOf="@+id/relativeLayout5"
+                tools:ignore="RelativeOverlap" />
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout5"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true">
+
+                <Button
+                    android:id="@+id/buttonSaveTranslation"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@android:drawable/ic_menu_save"
+                    android:layout_marginBottom="47dp"
+                    android:layout_above="@+id/buttonSaveToFavourite"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+
+                <Button
+                    android:id="@+id/buttonSaveToFavourite"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/favbutton"
+                    android:layout_marginBottom="78dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+
+                <Button
+                    android:id="@+id/buttonSpeakTranslatedText"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+
+                    android:layout_alignBaseline="@+id/buttonSaveTranslation"
+                    android:layout_alignBottom="@+id/buttonSaveTranslation"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:background="@drawable/speakerbutton" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

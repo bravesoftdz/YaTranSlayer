@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_homepage"
+        android:icon="@drawable/ic_action_translate"
+        android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/navigation_memopage"
+        android:icon="@drawable/ic_action_farovite"
+
+        android:title="@string/title_memo" />
+
+    <item
+        android:id="@+id/navigation_options"
+        android:icon="@drawable/ic_action_settings"
+        android:title="@string/title_options" />
+
+</menu>

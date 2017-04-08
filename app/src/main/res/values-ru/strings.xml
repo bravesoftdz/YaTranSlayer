@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">YaTranSlayer</string>
+    <string name="title_home">Перевод</string>
+    <string name="title_memo">История</string>
+    <string name="title_options">Настройки</string>
+    <string name="input_hint_text">Текст для перевода</string>
+    <string name="empty_list">Пусто</string>
+    <string name="choose_your_language">Выберите родной язык</string>
+    <string name="choose_language">Выберите язык</string>
+    <string name="favourites">Избранное</string>
+    <string name="delete">Удалить</string>
+    <string name="translation_dir_not_supported">Это направление перевода не поддерживается</string>
+    <string name="input_text_is_empty">Текст перевода пустой</string>
+    <string name="swipe_left_to_delete">Проведите пальцем влево для удаления</string>
+    <string name="long_click_favourite_trigger">Долгое нажатие переключает избранное</string>
+    <string name="cancel_btn">Отмена</string>
+    <string name="current_state_hint">Текущее состояние</string>
+    <string name="results_hint">Результат</string>
+    <string name="start_btn">Запись</string>
+    <string name="stop_btn">Стоп</string>
+    <string name="voice_volume_hint">Громкость</string>
+    <string name="record_permission_text">Не получено разрешение на запись звука</string>
+    <string name="canceled">Отменено</string>
+    <string name="error_occured">Ошибка случилась</string>
+    <string name="recording_begin">Начало записи</string>
+    <string name="recording_done">Конец записи</string>
+    <string name="speech_detected">Обнаружена речь</string>
+    <string name="speech_ends">Конец речи</string>
+    <string name="partial_result">"Частичный результат: "</string>
+    <string name="en">EN</string>
+    <string name="ru">RU</string>
+    <string name="check_what_lang">check what lang</string>
+    <string name="send_text_to">Отправить на перевод</string>
+</resources>

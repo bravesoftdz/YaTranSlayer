@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">YaTranSlayer</string>
+    <string name="title_home">Translate</string>
+    <string name="title_memo">History</string>
+    <string name="title_options">Options</string>
+    <string name="input_hint_text">Text to translate</string>
+    <string name="choose_your_language">Choose your language</string>
+    <string name="empty_list">Empty</string>
+    <string name="choose_language">Choose language</string>
+    <string name="favourites">Favourites</string>
+    <string name="delete">Delete</string>
+    <string name="translation_dir_not_supported">Translation direction NOT supported</string>
+    <string name="input_text_is_empty">Input text is empty</string>
+    <string name="swipe_left_to_delete">Swipe left on list to delete</string>
+    <string name="long_click_favourite_trigger">Long click favourite trigger</string>
+
+    <string name="results_hint">Results</string>
+    <string name="voice_volume_hint">Voice volume</string>
+
+    <string name="current_state_hint">Current state</string>
+    <string name="start_btn">Start</string>
+    <string name="stop_btn">Stop</string>
+    <string name="cancel_btn">Cancel</string>
+
+    <string name="record_permission_text">Record audio permission was not granted</string>
+    <string name="recording_begin">Recording begin</string>
+    <string name="speech_detected">Speech detected</string>
+    <string name="speech_ends">Speech ends</string>
+    <string name="recording_done">Recording done</string>
+    <string name="canceled">Cancelled</string>
+    <string name="error_occured">Error occurred </string>
+    <string name="partial_result">Partial results: </string>
+    <string name="en">EN</string>
+    <string name="ru">RU</string>
+    <string name="check_what_lang">check what lang</string>
+    <string name="send_text_to">Send text to</string>
+
+</resources>
